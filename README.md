@@ -8,7 +8,6 @@ The runner can be configured with the following values
 ### Convenience variables
 | Environment Variable | Description                    |
 |----------------------|--------------------------------|
-| `RUNNER_NAME`        | Name of the GitHub runner      |
 | `RUNNER_LABELS`      | Labels for the GitHub runner   |
 
 ### Technical variables
@@ -27,7 +26,6 @@ docker build --name github_runner .
 you can start it using
 ```
 docker run --rm --name github_runner
- -e RUNNER_NAME=<name>
  -e RUNNER_LABELS=<custom tag>
  -e GITHUB_ORG=<organization name>
  -e GITHUB_TOKEN=<token>

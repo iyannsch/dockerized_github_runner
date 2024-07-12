@@ -6,7 +6,7 @@ payload=$(curl -sX POST -H "Authorization: token ${GITHUB_TOKEN}" ${registration
 export RUNNER_TOKEN=$(echo $payload | jq .token --raw-output)
 
 ./config.sh \
-    --name ${RUNNER_NAME} \
+    --name $(hostname) \
     --token ${RUNNER_TOKEN} \
     --labels ${RUNNER_LABELS} \
     --url https://github.com/${GITHUB_ORG} \
