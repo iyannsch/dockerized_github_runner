@@ -2,10 +2,10 @@ FROM debian:bookworm-slim
 
 ARG RUNNER_VERSION="2.317.0"
 
-ENV RUNNER_NAME ""
-ENV RUNNER_LABELS ""
-ENV GITHUB_ORG ""
-ENV GITHUB_TOKEN ""
+ENV RUNNER_NAME=""
+ENV RUNNER_LABELS=""
+ENV GITHUB_ORG=""
+ENV GITHUB_TOKEN=""
 
 # Install Docker -> https://docs.docker.com/engine/install/debian/
 
@@ -42,6 +42,7 @@ COPY --chown=github:github entrypoint.sh  /actions-runner/entrypoint.sh
 RUN sudo chmod u+x /actions-runner/entrypoint.sh
 
 #working folder for the runner 
-RUN sudo mkdir /work 
+RUN sudo mkdir /work && \
+  sudo chown github:github /work
 
 ENTRYPOINT ["/actions-runner/entrypoint.sh"]
