@@ -26,11 +26,15 @@ docker build --name github_runner .
 you can start it using
 ```
 docker run --rm --name github_runner
+ -v /var/run/docker.sock:/var/run/docker.sock
+ --group-add 999
  -e RUNNER_LABELS=<custom tag>
  -e GITHUB_ORG=<organization name>
  -e GITHUB_TOKEN=<token>
  github_runner
 ```
+
+(group 999 is the docker group)
 
 ## Credits
 Adapted from https://github.com/marcel-dempers/docker-development-youtube-series
